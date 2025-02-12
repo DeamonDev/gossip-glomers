@@ -44,10 +44,20 @@ type TopologyMessageResponse struct {
 }
 
 func NewServer(n *maelstrom.Node) *Server {
-	return &Server{node: n}
+	s := &Server{node: n}
+
+	n.Handle("topology", s.readTopologyHandler)
+	n.Handle("broadcast", s.broadcastHandler)
+	n.Handle("read", s.readHandler)
+
+	return s
 }
 
-func (s *Server) ReadTopologyHandler(msg maelstrom.Message) error {
+func (s *Server) Run() error {
+	return s.node.Run()
+}
+
+func (s *Server) readTopologyHandler(msg maelstrom.Message) error {
 	defer s.topologyMu.Unlock()
 
 	var body TopologyMessage
@@ -65,7 +75,7 @@ func (s *Server) ReadTopologyHandler(msg maelstrom.Message) error {
 	return s.node.Reply(msg, topologyMessageResponse)
 }
 
-func (s *Server) BroadcastHandler(msg maelstrom.Message) error {
+func (s *Server) broadcastHandler(msg maelstrom.Message) error {
 	defer s.idsMu.Unlock()
 
 	var body BroadcastMessage
@@ -81,7 +91,7 @@ func (s *Server) BroadcastHandler(msg maelstrom.Message) error {
 	return s.node.Reply(msg, broadcastMessageResponse)
 }
 
-func (s *Server) ReadHandler(msg maelstrom.Message) error {
+func (s *Server) readHandler(msg maelstrom.Message) error {
 	defer s.idsMu.Unlock()
 
 	var body ReadMessage
