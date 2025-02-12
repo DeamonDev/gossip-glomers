@@ -1,3 +1,7 @@
 go 1.23.6
 
-use ./echo
+use (
+	./broadcast-3a
+	./echo
+	./unique-id-generator
+)
