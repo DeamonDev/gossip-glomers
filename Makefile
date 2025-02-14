@@ -1,4 +1,4 @@
-MODULE ?= broadcast-3a
+MODULE ?= broadcast-3b
 BINARY ?= broadcast
 
 run:
