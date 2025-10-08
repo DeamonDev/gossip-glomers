@@ -1,5 +1,5 @@
-MODULE ?= broadcast-3b
-BINARY ?= broadcast
+MODULE ?= echo
+BINARY ?= echo
 
 run:
 	go run ./$(MODULE)

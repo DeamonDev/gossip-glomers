@@ -1,5 +1,5 @@
 module github.com/DeamonDev/gossip-glomers-echo
 
-go 1.23.6
+go 1.25.1
 
-require github.com/jepsen-io/maelstrom/demo/go v0.0.0-20250204203845-8263d1dd2b7a
+require github.com/jepsen-io/maelstrom/demo/go v0.0.0-20250920002117-21168aa9cdd2
