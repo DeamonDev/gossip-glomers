@@ -113,7 +113,7 @@ func (s *Server) broadcastHandler(msg maelstrom.Message) error {
 
 		go func(id string) {
 			defer wg.Done()
-			if err := s.node.Send(peerNodeId, body); err != nil {
+			if err := s.node.Send(id, body); err != nil {
 				panic(err)
 			}
 		}(peerNodeId)
