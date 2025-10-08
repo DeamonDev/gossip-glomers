@@ -2,8 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	maelstrom "github.com/jepsen-io/maelstrom/demo/go"
 	"sync"
+
+	maelstrom "github.com/jepsen-io/maelstrom/demo/go"
 )
 
 type Server struct {

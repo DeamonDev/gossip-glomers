@@ -2,9 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"log"
+
 	"github.com/google/uuid"
 	maelstrom "github.com/jepsen-io/maelstrom/demo/go"
-	"log"
 )
 
 func main() {
