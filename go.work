@@ -4,5 +4,6 @@ use (
 	./broadcast-3a
 	./broadcast-3b
 	./echo
+	./grow-only-counter
 	./unique-id-generator
 )

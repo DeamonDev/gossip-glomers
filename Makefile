@@ -1,5 +1,5 @@
-MODULE ?= echo
-BINARY ?= echo
+MODULE ?= grow-only-counter
+BINARY ?= counter
 
 run:
 	go run ./$(MODULE)
